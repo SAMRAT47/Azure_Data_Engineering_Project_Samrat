@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "samratazurefactory"
+		},
+		"azuresql_password": {
+			"value": ""
+		},
+		"datalake_accountKey": {
+			"value": ""
+		},
+		"azuresql_properties_typeProperties_server": {
+			"value": "samrat-azure-project-server.database.windows.net"
+		},
+		"azuresql_properties_typeProperties_database": {
+			"value": "samrat-azure-database"
+		},
+		"azuresql_properties_typeProperties_userName": {
+			"value": "adminsamrat"
+		},
+		"datalake_properties_typeProperties_url": {
+			"value": "https://samratstorageazure.dfs.core.windows.net/"
+		}
+	}
+}
