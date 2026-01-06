@@ -18,12 +18,14 @@ The project moves beyond basic ETL by incorporating advanced features like **Uni
 ---
 
 ## 🏗️ Architecture & Workflow
+![Architecture Diagram](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/architechture.PNG)
+*Figure 1: High-level End-to-End Architecture Flow.*
 
 ### 1. Azure Infrastructure Setup
 The project is hosted on a comprehensive Azure Resource Group containing the Data Factory, Databricks Workspace, SQL Database, and Storage Accounts.
 
 ![Resource Group](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/Resource_Group.PNG)
-*Figure 1: The Azure Resource Group containing all provisioned services.*
+*Figure 2: The Azure Resource Group containing all provisioned services.*
 
 ### 2. Orchestration & Incremental Loading (ADF)
 The core orchestration is handled by Azure Data Factory, which manages the **Change Data Capture (CDC)** logic to ensure only new or modified data is processed.
@@ -32,7 +34,7 @@ The core orchestration is handled by Azure Data Factory, which manages the **Cha
 The pipeline iterates through table lists using a `ForEach` activity. If the pipeline succeeds or fails, a **Web Activity** triggers an Azure Logic App to send email alerts.
 
 ![Main Pipeline](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/adf_pipeline_1.PNG)
-*Figure 2: The Master Orchestration pipeline with ForEach iterator and Alerting mechanisms.*
+*Figure 3: The Master Orchestration pipeline with ForEach iterator and Alerting mechanisms.*
 
 #### **Incremental Logic (CDC)**
 Inside the iterator, the pipeline performs a **Watermark Lookup**:
@@ -41,13 +43,13 @@ Inside the iterator, the pipeline performs a **Watermark Lookup**:
 3.  **Copy Data**: Moves only the data between `Last_Modified_Date > Old_Watermark` and `Last_Modified_Date <= New_Watermark`.
 
 ![Incremental Logic](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/adf_pipeline_2.PNG)
-*Figure 3: The internal logic for Incremental Data Loading.*
+*Figure 4: The internal logic for Incremental Data Loading.*
 
 #### **State Management**
 Once the data copy is successful, a stored procedure or script updates the control table with the new "High Watermark" to prepare for the next run.
 
 ![CDC Update](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/adf_pipeline_3.PNG)
-*Figure 4: Updating the Watermark table to maintain state.*
+*Figure 5: Updating the Watermark table to maintain state.*
 
 ---
 
