@@ -18,7 +18,7 @@ The project moves beyond basic ETL by incorporating advanced features like **Uni
 ---
 
 ## 🏗️ Architecture & Workflow
-![Architecture Diagram](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/architechture.PNG)
+![Architecture Diagram](https://github.com/SAMRAT47/Azure_Data_Engineering_Project_Samrat/blob/main/Azure_Data_Engineering_Project_Samrat/images/architechture.png)
 *Figure 1: High-level End-to-End Architecture Flow.*
 
 ### 1. Azure Infrastructure Setup
