@@ -1,0 +1,9 @@
+{
+	"name": "samratazurefactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "94a67a9f-72df-4187-9403-f12f13627554",
+		"tenantId": "46f20d16-09bb-41c8-8105-6e1d5b58311e"
+	}
+}
